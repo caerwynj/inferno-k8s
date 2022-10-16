@@ -1,0 +1,61 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: inferno-signer-deployment
+  labels:
+    app: inferno-signer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: inferno-signer
+  template:
+    metadata:
+      labels:
+        app: inferno-signer
+    spec:
+      containers:
+      - name: inferno-os
+        image: caerwyn/inferno-os:latest
+        command: ["emu", "scripts/auth"]
+        ports:
+        - containerPort: 6671
+          name: infsigner
+        - containerPort: 6672
+          name: infcsigner
+        - containerPort: 6673
+          name: inflogin
+        volumeMounts:
+        - name: keydb
+          mountPath: "/usr/inferno/keydb"
+          readOnly: true
+        - name: scripts
+          mountPath: "/usr/inferno/dis/scripts"
+      volumes:
+      - name: keydb
+        secret: 
+          secretName: inferno-keys
+          optional: false
+      - name: scripts
+        configMap:
+          name: inferno-configmap
+          defaultMode: 0755
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: inferno-signer-service
+spec:
+  selector:
+    app: inferno-signer
+  ports:
+    - protocol: TCP
+      port: 6671
+      targetPort: 6671
+    - protocol: TCP
+      port: 6672
+      targetPort: 6673
+    - protocol: TCP
+      port: 6673
+      targetPort: 6673

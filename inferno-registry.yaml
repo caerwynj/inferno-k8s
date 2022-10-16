@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: inferno-registry-deployment
+  labels:
+    app: inferno-registry
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: inferno-registry
+  template:
+    metadata:
+      labels:
+        app: inferno-registry
+    spec:
+      containers:
+      - name: inferno-os
+        image: caerwyn/inferno-os:latest
+        command: ["emu", "scripts/registry"]
+        ports:
+        - containerPort: 6675
+          name: registry
+        volumeMounts:
+        - name: keyring
+          mountPath: "/usr/inferno/usr/inferno/keyring"
+          readOnly: true
+        - name: scripts
+          mountPath: "/usr/inferno/dis/scripts"
+      volumes:
+      - name: keyring
+        secret: 
+          secretName: inferno-keyring
+          optional: false
+      - name: scripts
+        configMap:
+          name: inferno-configmap
+          defaultMode: 0755
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: inferno-registry-service
+spec:
+  selector:
+    app: inferno-registry
+  ports:
+    - protocol: TCP
+      port: 6675
+      targetPort: 6675

@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: inferno-configmap
+data:
+  auth: |
+    IyEvZGlzL3NoLmRpcyAtbgpsb2FkIHN0ZApvciB7ZnRlc3QgLWUgL25ldC9kbnN9IHtmdGVzdCAt
+    ZSAvZW52L2VtdWhvc3R9IHtuZGIvZG5zfQpvciB7ZnRlc3QgLWUgL25ldC9jc30ge25kYi9jc30K
+    b3Ige2Z0ZXN0IC1mIC9rZXlkYi9zaWduZXJrZXl9IHtlY2hvICdhdXRoOiBuZWVkIHRvIHVzZSBj
+    cmVhdGVzaWduZXJrZXkoOCknID5bMT0yXTsgcmFpc2Ugbm9zaWduZXJrZXl9Cm9yIHtmdGVzdCAt
+    ZiAva2V5ZGIva2V5c30ge2VjaG8gJ2F1dGg6IG5lZWQgdG8gY3JlYXRlIC9rZXlkYi9rZXlzJyA+
+    WzE9Ml07IHJhaXNlIG5va2V5c30KYW5kIHthdXRoL2tleWZzIC1uIC9rZXlkYi9wYXNzd29yZCB9
+    IHsKCWxpc3RlbiAtdiAtdCAtQSAndGNwISohaW5mbG9naW4nIHthdXRoL2xvZ2luZCZ9CglsaXN0
+    ZW4gLXYgLXQgLUEgJ3RjcCEqIWluZmtleScge2F1dGgva2V5c3J2Jn0KCWxpc3RlbiAtdiAtdCAt
+    QSAndGNwISohaW5mc2lnbmVyJyB7YXV0aC9zaWduZXImfQoJbGlzdGVuIC12IC10IC1BICd0Y3Ah
+    KiFpbmZjc2lnbmVyJyB7YXV0aC9jb3VudGVyc2lnbmVyJn0KfQojIHJ1biBzdmMvcmVnaXN0cnkg
+    c2VwYXJhdGVseSBpZiBkZXNpcmVkCg==
+  registry: |
+    IyEvZGlzL3NoLmRpcyAtbgpsb2FkIHN0ZApvciB7ZnRlc3QgLWYgL21udC9yZWdpc3RyeS9uZXd9
+    IHsKCWRiPSgpCglhbmQge2Z0ZXN0IC1mIC9saWIvbmRiL3JlZ2lzdHJ5fSB7ZGI9KC1mIC9saWIv
+    bmRiL3JlZ2lzdHJ5KX0KCW1vdW50IC1BIC1jIHtuZGIvcmVnaXN0cnkgJGRifSAvbW50L3JlZ2lz
+    dHJ5Cn0KbGlzdGVuIC12ICd0Y3AhKiFyZWdpc3RyeScge2V4cG9ydCAvbW50L3JlZ2lzdHJ5Jn0J
+    IyAtbj8K
+  styx: |
+    IyEvZGlzL3NoLmRpcyAtbgpsb2FkIHN0ZApvciB7ZnRlc3QgLWUgL25ldC9kbnN9IHtmdGVzdCAt
+    ZSAvZW52L2VtdWhvc3R9IHtuZGIvZG5zfQpvciB7ZnRlc3QgLWUgL25ldC9jc30ge25kYi9jc30K
+    c3ZjL3JlZ2lzdHJ5CiNzdmMvc3R5eAo=

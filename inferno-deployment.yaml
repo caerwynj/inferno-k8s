@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: inferno-deployment
+  labels:
+    app: inferno-web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: inferno-web
+  template:
+    metadata:
+      labels:
+        app: inferno-web
+    spec:
+      containers:
+      - name: inferno-os
+        image: caerwyn/inferno-os:latest
+        command: ["emu", "svc/httpd/httpd", "-a", "tcp!*!8080"]
+        ports:
+        - containerPort: 8080
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: inferno-service
+spec:
+  selector:
+    app: inferno-web
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
