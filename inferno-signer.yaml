@@ -17,7 +17,8 @@ spec:
       containers:
       - name: inferno-os
         image: caerwyn/inferno-os:latest
-        command: ["emu", "scripts/auth"]
+        command: ["emu"]
+        args: ["sh", "/dis/scripts/auth"]
         ports:
         - containerPort: 6671
           name: infsigner

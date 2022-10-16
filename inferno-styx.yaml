@@ -17,7 +17,8 @@ spec:
       containers:
       - name: inferno-os
         image: caerwyn/inferno-os:latest
-        command: ["emu", "scripts/styx"]
+        command: ["emu"]
+        args: ["sh", "-i", "-v", "/dis/scripts/styx"]
         ports:
         - containerPort: 6666
           name: styx

@@ -17,7 +17,8 @@ spec:
       containers:
       - name: inferno-os
         image: caerwyn/inferno-os:latest
-        command: ["emu", "svc/httpd/httpd", "-a", "tcp!*!8080"]
+        command: ["emu"]
+        args: ["svc/httpd/httpd", "-a", "tcp!*!8080"]
         ports:
         - containerPort: 8080
 
