@@ -2,4 +2,4 @@
 load std
 or {ftest -e /net/dns} {ftest -e /env/emuhost} {ndb/dns}
 or {ftest -e /net/cs} {ndb/cs}
-listen -v -s 'tcp!*!styx' {export /&}	
+listen -A -v -s 'tcp!*!styx' {export /&}	

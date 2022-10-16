@@ -19,6 +19,8 @@ data:
   registry: |
     #!/dis/sh.dis -n
     load std
+    or {ftest -e /net/dns} {ftest -e /env/emuhost} {ndb/dns}
+    or {ftest -e /net/cs} {ndb/cs}
     or {ftest -f /mnt/registry/new} {
       db=()
       and {ftest -f /lib/ndb/registry} {db=(-f /lib/ndb/registry)}
