@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: inferno-deployment
+  name: inferno-web0deployment
   labels:
     app: inferno-web
 spec:
@@ -26,7 +26,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: inferno-service
+  name: inferno-web-service
 spec:
   selector:
     app: inferno-web
